@@ -21,7 +21,7 @@ test-api:
 	docker rm --force apiserver || true
 	docker stop api-tests || true
 	docker rm --force api-tests || true
-	docker network rm calc-test-api || true
+	docker network rm calc-test-api
 
 test-e2e:
 	docker network create calc-test-e2e || true
@@ -41,7 +41,7 @@ test-e2e:
 	docker rm --force apiserver  || true
 	docker rm --force calc-web || true
 	docker rm --force e2e-tests || true
-	docker network rm calc-test-e2e || true
+	docker network rm calc-test-e2e
 
 run-web:
 	docker run --rm --volume `pwd`/web:/usr/share/nginx/html  --volume `pwd`/web/constants.local.js:/usr/share/nginx/html/constants.js --name calc-web -p 80:80 nginx
